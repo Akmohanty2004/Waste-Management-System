@@ -1,0 +1,706 @@
+/* ============================================
+   ANALYTICS CHARTS STYLES - PREMIUM GLASS DESIGN
+   Complete Glassmorphism Effects & Smooth Animations
+   ============================================ */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+/* ============================================
+   CSS VARIABLES - COLOR MANAGEMENT
+   ============================================ */
+:root {
+  /* Primary Colors */
+  --primary-green: #2e7d32;
+  --primary-green-light: #4caf50;
+  --primary-green-pale: #8bc34a;
+  --primary-green-dark: #1b5e20;
+  
+  /* Accent Colors */
+  --accent-purple: #667eea;
+  --accent-purple-dark: #764ba2;
+  --accent-orange: #ff9800;
+  --accent-blue: #2196f3;
+  --accent-red: #f44336;
+  
+  /* Text Colors */
+  --text-light: #e8f5e9;
+  --text-soft: #c8e6c9;
+  --text-muted: #a5d6a7;
+  --text-white: #ffffff;
+  
+  /* Glass Effects */
+  --bg-glass: rgba(15, 30, 15, 0.75);
+  --bg-card: rgba(20, 40, 20, 0.6);
+  --bg-card-hover: rgba(30, 55, 30, 0.7);
+  --bg-dark-glass: rgba(10, 20, 10, 0.85);
+  
+  /* Border & Shadows */
+  --border-glow: rgba(139, 195, 74, 0.3);
+  --border-glow-strong: rgba(139, 195, 74, 0.6);
+  --shadow-glow: 0 0 15px rgba(76, 175, 80, 0.2);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.25);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s ease;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-round: 40px;
+}
+
+/* ============================================
+   ANALYTICS CONTAINER
+   ============================================ */
+.analytics-container {
+  padding: 1rem;
+  animation: fadeIn 0.6s ease;
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+.section-header h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 0.25rem;
+  border-left: 4px solid var(--primary-green-pale);
+  padding-left: 0.75rem;
+}
+
+.section-header p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-left: 1rem;
+}
+
+/* ============================================
+   AI INSIGHTS SECTION - GLASS CARD
+   ============================================ */
+.ai-insights {
+  margin-bottom: 2rem;
+}
+
+.insight-card {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: var(--text-white);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideInLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.insight-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 80%;
+  height: 200%;
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  animation: rotateSlow 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.insight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+}
+
+.insight-icon {
+  font-size: 2.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.insight-content {
+  flex: 1;
+}
+
+.insight-content h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.insight-content p {
+  font-size: 0.95rem;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+/* ============================================
+   CHARTS GRID - GLASS CARDS
+   ============================================ */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  border: 1px solid var(--border-glow);
+  transition: var(--transition-smooth);
+  animation: fadeInUp 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(139, 195, 74, 0.1), transparent);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.chart-card:hover::after {
+  left: 100%;
+}
+
+.chart-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-glow-strong);
+  box-shadow: var(--shadow-xl), var(--shadow-glow);
+  background: var(--bg-card-hover);
+}
+
+.chart-header {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(76, 175, 80, 0.2);
+  padding-bottom: 0.75rem;
+}
+
+.chart-header h3 {
+  margin-bottom: 0.25rem;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.chart-header p {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+/* Chart Containers */
+.chart-container {
+  height: 280px;
+  position: relative;
+}
+
+.chart-container.doughnut {
+  height: 250px;
+}
+
+/* No Data Message */
+.no-data-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-md);
+}
+
+/* ============================================
+   CHART STATS - MODERN GRID
+   ============================================ */
+.chart-stats {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(76, 175, 80, 0.2);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border-radius: var(--radius-md);
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(139, 195, 74, 0.2);
+}
+
+.stat-item:hover {
+  background: rgba(139, 195, 74, 0.1);
+  transform: translateY(-3px);
+  border-color: rgba(139, 195, 74, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item .stat-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-item .stat-value {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-green-pale);
+}
+
+/* ============================================
+   PERFORMANCE METRICS - PREMIUM SECTION
+   ============================================ */
+.performance-metrics {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  margin-top: 1rem;
+  border: 1px solid var(--border-glow);
+  transition: var(--transition-smooth);
+}
+
+.performance-metrics:hover {
+  border-color: var(--border-glow-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+.performance-metrics h3 {
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  border-left: 4px solid var(--primary-green-pale);
+  padding-left: 0.75rem;
+  font-weight: 600;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  backdrop-filter: blur(5px);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(139, 195, 74, 0.2);
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  background: rgba(46, 125, 50, 0.2);
+  border-color: var(--border-glow-strong);
+  box-shadow: var(--shadow-glow);
+}
+
+.metric-icon {
+  font-size: 1.8rem;
+  background: rgba(139, 195, 74, 0.15);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition-smooth);
+}
+
+.metric-card:hover .metric-icon {
+  transform: scale(1.1);
+  background: rgba(139, 195, 74, 0.25);
+  box-shadow: var(--shadow-glow);
+}
+
+.metric-info {
+  flex: 1;
+}
+
+.metric-info h4 {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary-green-pale);
+  margin: 0.2rem 0;
+}
+
+.metric-info small {
+  font-size: 0.6rem;
+  color: #9ccc9c;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 5px rgba(139, 195, 74, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(139, 195, 74, 0.6); }
+}
+
+/* Chart Specific Animations */
+canvas {
+  filter: drop-shadow(0 0 8px rgba(139, 195, 74, 0.15));
+  transition: filter 0.3s ease;
+}
+
+canvas:hover {
+  filter: drop-shadow(0 0 15px rgba(139, 195, 74, 0.3));
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1200px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chart-card {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .analytics-container {
+    padding: 0.5rem;
+  }
+  
+  .insight-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.2rem;
+  }
+  
+  .insight-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 2rem;
+  }
+  
+  .insight-content h4 {
+    font-size: 1rem;
+  }
+  
+  .insight-content p {
+    font-size: 0.85rem;
+  }
+  
+  .chart-card {
+    padding: 1rem;
+  }
+  
+  .chart-container {
+    height: 220px;
+  }
+  
+  .chart-container.doughnut {
+    height: 200px;
+  }
+  
+  .chart-stats {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .stat-item {
+    padding: 0.5rem;
+  }
+  
+  .stat-item .stat-label {
+    font-size: 0.65rem;
+  }
+  
+  .stat-item .stat-value {
+    font-size: 0.85rem;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .metric-card {
+    padding: 0.85rem;
+  }
+  
+  .metric-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+  }
+  
+  .metric-value {
+    font-size: 1rem;
+  }
+  
+  .performance-metrics {
+    padding: 1rem;
+  }
+  
+  .performance-metrics h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .section-header p {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .charts-grid {
+    gap: 1rem;
+  }
+  
+  .chart-header h3 {
+    font-size: 0.9rem;
+  }
+  
+  .chart-header p {
+    font-size: 0.65rem;
+  }
+  
+  .chart-stats {
+    gap: 0.4rem;
+  }
+  
+  .stat-item .stat-label {
+    font-size: 0.6rem;
+  }
+  
+  .stat-item .stat-value {
+    font-size: 0.75rem;
+  }
+  
+  .metric-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+  }
+  
+  .metric-value {
+    font-size: 0.9rem;
+  }
+  
+  .metric-info h4 {
+    font-size: 0.6rem;
+  }
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+.analytics-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.analytics-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.analytics-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-purple-dark));
+  border-radius: 3px;
+}
+
+.analytics-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--primary-green-pale), var(--primary-green-light));
+}
+
+/* ============================================
+   ADDITIONAL GLASS EFFECTS & UTILITIES
+   ============================================ */
+.glass-effect {
+  background: rgba(20, 40, 20, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-lg);
+}
+
+/* Loading Animation for Charts */
+@keyframes chartPulse {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.chart-loading {
+  animation: chartPulse 1s ease-in-out infinite alternate;
+}
+
+/* Hover Glow Effect */
+.glow-on-hover:hover {
+  box-shadow: var(--shadow-glow);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, var(--text-light), var(--primary-green-pale));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Chart Tooltip Customization */
+.chartjs-tooltip {
+  background: var(--bg-dark-glass) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid var(--border-glow) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-light) !important;
+  padding: 8px 12px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+/* Custom Legend Styling */
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.legend-item:hover {
+  color: var(--primary-green-pale);
+  transform: translateY(-1px);
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+/* Loading Spinner for Charts */
+.chart-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 200px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(139, 195, 74, 0.2);
+  border-top-color: var(--primary-green-pale);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

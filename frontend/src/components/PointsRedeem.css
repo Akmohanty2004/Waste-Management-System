@@ -1,0 +1,91 @@
+.points-redeem-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  color: white;
+}
+
+.points-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.points-icon {
+  font-size: 2.5rem;
+  background: rgba(255,255,255,0.2);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.points-details h4 {
+  margin-bottom: 0.25rem;
+}
+
+.points-amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.points-value {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.redeem-section {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.redeem-section input {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.redeem-section button {
+  padding: 0.75rem 1.5rem;
+  background: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.redeem-section button:hover:not(:disabled) {
+  background: #f57c00;
+  transform: translateY(-2px);
+}
+
+.redeem-section button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.redeem-message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.redeem-message.success {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+
+.redeem-message.error {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}
