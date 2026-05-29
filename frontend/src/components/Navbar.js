@@ -28,7 +28,7 @@ const Navbar = () => {
         {/* Logo Section - Left Side */}
         <Link to={user.role === 'admin' ? '/admin' : '/dashboard'} className="nav-logo">
           <span className="logo-icon">🗑️</span>
-          <span className="logo-text">EcoWaste Manager</span>
+          <span className="logo-text">Clean India</span>
         </Link>
         
         {/* Navigation Links - Center/Left Section */}

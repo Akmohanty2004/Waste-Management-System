@@ -130,28 +130,41 @@ const ReporterDashboard = () => {
     }
   };
 
+  // Function to cancel a pending report before acceptance
   const handleCancelReport = async (reportId) => {
     if (!window.confirm('Are you sure you want to cancel this report? The money will be refunded to your wallet.')) {
       return;
     }
 
+    setLoading(true);
     try {
+      console.log('Cancelling report:', reportId);
       const response = await axios.put(`/waste/report/${reportId}/cancel`);
+      
       if (response.data.success) {
         setMessage(response.data.message);
         setMessageType('success');
         
+        // Update user context with new wallet balance
         const updatedUser = { ...user, walletBalance: response.data.walletBalance };
         localStorage.setItem('user', JSON.stringify(updatedUser));
         if (setUser) setUser(updatedUser);
         setWalletBalance(response.data.walletBalance);
         
-        fetchData();
+        // Refresh data to remove cancelled report
+        await fetchData();
+        
         setTimeout(() => setMessage(''), 3000);
+      } else {
+        setMessage(response.data.message || 'Failed to cancel report');
+        setMessageType('error');
       }
     } catch (error) {
+      console.error('Cancel report error:', error);
       setMessage(error.response?.data?.message || 'Failed to cancel report');
       setMessageType('error');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -297,7 +310,8 @@ const ReporterDashboard = () => {
       accepted: { class: 'status-accepted', text: '✓ Accepted', icon: '👤' },
       'in-progress': { class: 'status-progress', text: '🔄 In Progress', icon: '🧹' },
       waiting_verification: { class: 'status-waiting', text: '⏳ Awaiting Verification', icon: '📸' },
-      completed: { class: 'status-completed', text: '✅ Completed', icon: '✓' }
+      completed: { class: 'status-completed', text: '✅ Completed', icon: '✓' },
+      rejected: { class: 'status-rejected', text: '❌ Rejected', icon: '✗' }
     };
     return badges[status] || badges.pending;
   };
@@ -488,9 +502,14 @@ const ReporterDashboard = () => {
         </div>
       )}
 
-      {/* My Reports Section */}
+      {/* My Reports Section with Cancel Button */}
       {activeTab === 'reports' && (
         <div className="section">
+          <div className="section-header">
+            <h2>📋 My Reports</h2>
+            <p>Track all your waste reports and their current status</p>
+          </div>
+          
           {recentReports.length === 0 ? (
             <div className="empty-state">
               <div className="empty-icon">📸</div>
@@ -504,6 +523,8 @@ const ReporterDashboard = () => {
             <div className="reports-list">
               {recentReports.map(report => {
                 const status = getStatusBadge(report.status);
+                const canCancel = report.status === 'pending' && !report.acceptedBy;
+                
                 return (
                   <div key={report._id} className={`report-card ${report.status}`}>
                     <img src={report.imageUrl} alt="Waste" className="report-thumb" />
@@ -521,27 +542,30 @@ const ReporterDashboard = () => {
                         <span>⚠️ {report.severity}</span>
                         <span>📅 {new Date(report.createdAt).toLocaleDateString()}</span>
                       </div>
-                      {report.status === 'pending' && (
-  <div className="rejected-actions">
-    <button 
-      onClick={() => handleCancelRejection(report._id)}
-      className="btn-cancel-rejection"
-      disabled={loading}
-    >
-      ↺ Cancel Rejection & Release Payment
-    </button>
-  </div>
-)}
+                      
+                      {/* Cancel Report Button - Only for pending reports */}
+                      {canCancel && (
+                        <button 
+                          onClick={() => handleCancelReport(report._id)}
+                          className="btn-cancel-report"
+                          disabled={loading}
+                        >
+                          ❌ Cancel Report & Get Refund
+                        </button>
+                      )}
+                      
                       {report.verificationStatus === 'rejected' && report.verificationComment && (
                         <div className="rejection-reason">
                           <strong>Rejection reason:</strong> {report.verificationComment}
                         </div>
                       )}
+                      
                       {report.acceptedBy && report.status === 'accepted' && (
                         <div className="accepted-info">
                           <strong>Accepted by:</strong> {report.acceptedBy.name}
                         </div>
                       )}
+                      
                       {report.status === 'waiting_verification' && (
                         <div className="waiting-info">
                           <strong>⏳ Waiting for your verification</strong>
@@ -556,6 +580,7 @@ const ReporterDashboard = () => {
                           </button>
                         </div>
                       )}
+                      
                       {report.status === 'completed' && (
                         <div className="completed-info">
                           <strong>✅ Completed by:</strong> {report.acceptedBy?.name}

@@ -2322,6 +2322,7 @@ body::before {
   border: 1px solid rgba(76, 175, 80, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  overflow: hidden;
 }
 
 .stat-card:hover {
@@ -3177,4 +3178,39 @@ body::before {
 
 .glass-reflection:hover::after {
   opacity: 1;
+}
+/* Cancel Report Button */
+.btn-cancel-report {
+  padding: 0.5rem 1rem;
+  background: #ffebee;
+  color: #f44336;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  margin-top: 0.5rem;
+  width: auto;
+  display: inline-block;
+}
+
+.btn-cancel-report:hover:not(:disabled) {
+  background: #f44336;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
+.btn-cancel-report:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Report Card Actions */
+.report-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
 }

@@ -44,7 +44,7 @@ const Login = () => {
         <div className="auth-card split-card left-panel">
           <div className="auth-logo">
             <span className="logo-icon">♻️</span>
-            <h2>EcoCycle</h2>
+            <h2>CLEAN INDIA</h2>
           </div>
 
           <h3>Welcome Back!</h3>
@@ -140,7 +140,7 @@ const Login = () => {
         {/* RIGHT SIDE DESIGN PANEL */}
         <div className="illustration-panel">
           <div className="panel-light"></div>
-          <div className="floating-logo">♻️</div>
+          <div className="floating-logo">🪴</div>
           <h2>EcoCycle</h2>
           <div className="truck-illustration">🚛♻️🗑️</div>
           <h3>Efficiently Managing Waste for a Greener Tomorrow</h3>

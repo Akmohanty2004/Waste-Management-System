@@ -69,7 +69,7 @@ const Register = () => {
         <div className="auth-card split-card left-panel register-card">
           <div className="auth-logo">
             <span className="logo-icon">♻️</span>
-            <h2>EcoCycle</h2>
+            <h2>CLEAN INDIA</h2>
           </div>
 
           <h3>Create Account</h3>
@@ -202,9 +202,9 @@ const Register = () => {
         {/* RIGHT DESIGN */}
         <div className="illustration-panel register-illustration">
           <div className="panel-light"></div>
-          <div className="floating-logo">♻️</div>
+          <div className="floating-logo">🪴🧹</div>
           <h2>EcoCycle</h2>
-          <div className="truck-illustration">🌱🚛🗑️</div>
+          <div className="truck-illustration">🚛♻️🗑️</div>
           <h3>Join The Green Mission Today</h3>
           <p>Be a part of the cleaner future</p>
         </div>
