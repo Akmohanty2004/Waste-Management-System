@@ -13,6 +13,7 @@ const Register = () => {
     phoneNumber: '',
     address: ''
   });
+  const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const { register } = useAuth();
   const navigate = useNavigate();
@@ -111,13 +112,21 @@ const Register = () => {
                 <div className="input-icon">
                   <span className="icon">🔒</span>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="Password"
                     required
                   />
+                  <span 
+                    className="right-icon" 
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{ cursor: 'pointer' }}
+                    title={showPassword ? "Hide password" : "Show password"}
+                  >
+                    {showPassword ? '🙈' : '👁️'}
+                  </span>
                 </div>
               </div>
               
@@ -125,7 +134,7 @@ const Register = () => {
                 <div className="input-icon">
                   <span className="icon">✔️</span>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleChange}

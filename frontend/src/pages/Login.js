@@ -6,6 +6,7 @@ import './Auth.css';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [role, setRole] = useState('user');
   const [errorMsg, setErrorMsg] = useState('');
   const { login } = useAuth();
@@ -70,13 +71,20 @@ const Login = () => {
               <div className="input-icon">
                 <span className="icon">🔒</span>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
                   required
                 />
-                <span className="right-icon">👁️</span>
+                <span 
+                  className="right-icon" 
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{ cursor: 'pointer' }}
+                  title={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? '🙈' : '👁️'}
+                </span>
               </div>
             </div>
 
