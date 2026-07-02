@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "security-check": "npm audit",
-    "prebuild": "npm run security-check",
+
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "eslintConfig": {

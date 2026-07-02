@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
   // ============================================
   
   // Set axios default config
-  axios.defaults.baseURL = 'http://localhost:5000/api';
+  axios.defaults.baseURL = 'https://waste-management-system-backend-9bl7.onrender.com/api';
   axios.defaults.timeout = 30000; // 30 seconds timeout
   axios.defaults.withCredentials = true; // Send cookies with requests
   axios.defaults.headers.common['Content-Type'] = 'application/json';

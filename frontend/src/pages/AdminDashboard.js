@@ -53,17 +53,17 @@ const AdminDashboard = () => {
       }
       
       // Fetch commission stats
-      const statsRes = await axios.get('http://localhost:5000/api/admin/commission-stats', {
+      const statsRes = await axios.get('/admin/commission-stats', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       
       // Fetch all users
-      const usersRes = await axios.get('http://localhost:5000/api/admin/all-users', {
+      const usersRes = await axios.get('/admin/all-users', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       
       // Fetch all reports
-      const reportsRes = await axios.get('http://localhost:5000/api/admin/all-reports', {
+      const reportsRes = await axios.get('/admin/all-reports', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       
