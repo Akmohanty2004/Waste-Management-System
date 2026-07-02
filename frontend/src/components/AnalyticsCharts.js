@@ -330,18 +330,7 @@ const AnalyticsCharts = ({ stats, monthlyStats, recentTransactions }) => {
     }
     
     // If no data, use sample data for demo
-    const hasData = Object.values(wasteData).some(v => v > 0);
-    
-    if (!hasData) {
-      wasteData = {
-        plastic: 25,
-        organic: 18,
-        electronic: 12,
-        hazardous: 8,
-        mixed: 30,
-        other: 7
-      };
-    }
+    // Only show real data (no sample data fallback)
     
     return {
       labels: ['Plastic', 'Organic', 'Electronic', 'Hazardous', 'Mixed', 'Other'],

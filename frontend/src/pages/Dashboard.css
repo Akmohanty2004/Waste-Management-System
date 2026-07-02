@@ -1924,12 +1924,7 @@ body::before {
 /* ============================================
    ADMIN DASHBOARD SPECIFIC
    ============================================ */
-.admin-dashboard .stats-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
+
 
 .admin-dashboard .stat-card {
   cursor: pointer;
