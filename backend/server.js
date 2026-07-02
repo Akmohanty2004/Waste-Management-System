@@ -18,7 +18,8 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://preeminent-torrone-ebf75d.netlify.app'
+  'https://preeminent-torrone-ebf75d.netlify.app',
+  'https://cllean-india.netlify.app'
 ];
 
 app.use(cors({
